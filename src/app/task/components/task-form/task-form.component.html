@@ -1,0 +1,59 @@
+<mat-card>
+  <form autocomplete="off" [formGroup]="taskForm" (submit)="onSubmit()">
+    <mat-form-field>
+      <input matInput formControlName="title" placeholder="Title" name="title">
+      <mat-error *ngIf="taskForm.controls['title'].hasError('required')">
+        Please enter a title
+      </mat-error>
+      <mat-error *ngIf="taskForm.controls['title'].hasError('maxlength')">
+        Title is too long
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea matInput formControlName="description" placeholder="Description" name="description"></textarea>
+      <mat-error *ngIf="taskForm.controls['description'].hasError('required')">
+        Please enter a description
+      </mat-error>
+      <mat-error *ngIf="taskForm.controls['description'].hasError('maxlength')">
+        Description is too long
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="date" formControlName="deadline" placeholder="Deadline" name="deadline">
+      <mat-error *ngIf="taskForm.controls['deadline'].hasError('required')">
+        Please enter deadline
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Priority</mat-label>
+      <select matNativeControl formControlName="priority" name="priority" required>
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Status</mat-label>
+      <select matNativeControl formControlName="status" name="status" required>
+        <option value="open">Open</option>
+        <option value="inProgress">In Progress</option>
+        <option value="completed">Completed</option>
+        <option value="cancelled">Cancelled</option>
+      </select>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="assignee" placeholder="Assignee" name="assignee">
+      <mat-error *ngIf="taskForm.controls['assignee'].hasError('required')">
+        Please enter assignee
+      </mat-error>
+    </mat-form-field>
+    <div class="form-actions">
+      <button type="submit" mat-raised-button [disabled]="taskForm.invalid">
+        Save
+      </button>
+      <button type="button" color="warn" mat-raised-button (click)="onCancel(); $event.preventDefault()">
+        Cancel
+      </button>
+    </div>
+  </form>
+</mat-card>

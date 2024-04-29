@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TaskService } from '../../services/task.service';
+import { TaskModel } from '../../models/task.model';
 
 @Component({
   selector: 'app-task-list-page',
@@ -8,9 +9,9 @@ import { TaskService } from '../../services/task.service';
   styleUrls: ['./task-list-page.component.scss'],
 })
 export class TaskListPageComponent implements OnInit {
-  readonly columns = ['title', 'deadline', 'priority', 'status', 'executor'];
+  readonly columns = ['title', 'deadline', 'priority', 'status', 'assignee'];
 
-  tasks$!: Observable<Task[]>;
+  tasks$!: Observable<TaskModel[]>;
 
   constructor(private taskService: TaskService) {}
 
