@@ -42,4 +42,32 @@ export class TaskService {
       }),
     );
   }
+
+  updateTask(changedTask: TaskModel): Observable<TaskModel> {
+    return this.getTasks().pipe(
+      map((tasks) => {
+        const taskIndex = tasks.findIndex((item) => item.id === changedTask.id);
+        tasks[taskIndex] = changedTask;
+        localStorage.setItem(this.localStorageKey, JSON.stringify(tasks));
+        return changedTask;
+      }),
+      catchError((error) => {
+        console.log('ERROR', error);
+        return EMPTY;
+      }),
+    );
+  }
+
+  deleteTask(id: number) {
+    return this.getTasks().pipe(
+      map((tasks) => {
+        tasks = tasks.filter((item) => item.id !== id);
+        localStorage.setItem(this.localStorageKey, JSON.stringify(tasks));
+      }),
+      catchError((error) => {
+        console.log('ERROR', error);
+        return EMPTY;
+      }),
+    );
+  }
 }

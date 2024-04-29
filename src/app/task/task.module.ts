@@ -12,9 +12,15 @@ import { TaskRoutingModule } from './task-routing.module';
 import { TaskListPageComponent } from './pages/task-list-page/task-list-page.component';
 import { TaskFormComponent } from './components/task-form/task-form.component';
 import { CreateTaskPageComponent } from './pages/create-task-page/create-task-page.component';
+import { EditTaskPageComponent } from './pages/edit-task-page/edit-task-page.component';
 
 @NgModule({
-  declarations: [TaskListPageComponent, TaskFormComponent, CreateTaskPageComponent],
+  declarations: [
+    TaskListPageComponent,
+    TaskFormComponent,
+    CreateTaskPageComponent,
+    EditTaskPageComponent,
+  ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
