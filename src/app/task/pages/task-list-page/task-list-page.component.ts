@@ -28,7 +28,7 @@ export class TaskListPageComponent implements OnInit {
   }
 
   onClick(id: number) {
-    // this.router.navigate([id, 'edit']);
+    this.router.navigate(['details', id]);
   }
 
   onEdit(id: number) {

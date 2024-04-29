@@ -13,6 +13,7 @@ import { TaskListPageComponent } from './pages/task-list-page/task-list-page.com
 import { TaskFormComponent } from './components/task-form/task-form.component';
 import { CreateTaskPageComponent } from './pages/create-task-page/create-task-page.component';
 import { EditTaskPageComponent } from './pages/edit-task-page/edit-task-page.component';
+import { DetailedPageComponent } from './pages/detailed-page/detailed-page.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { EditTaskPageComponent } from './pages/edit-task-page/edit-task-page.com
     TaskFormComponent,
     CreateTaskPageComponent,
     EditTaskPageComponent,
+    DetailedPageComponent,
   ],
   imports: [
     CommonModule,
@@ -33,6 +35,6 @@ import { EditTaskPageComponent } from './pages/edit-task-page/edit-task-page.com
     MatInputModule,
     MatSelectModule,
   ],
-  exports: [TaskListPageComponent],
+  exports: [TaskListPageComponent, DetailedPageComponent],
 })
 export class TaskModule {}

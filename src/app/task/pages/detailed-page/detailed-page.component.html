@@ -1,0 +1,28 @@
+<button mat-raised-button color="primary" class="icon-btn" (click)="onBack()">
+  <mat-icon>arrow_back</mat-icon>
+</button>
+<mat-card class="card" *ngIf="task">
+  <h2>{{ task.title }}</h2>
+  <mat-card-content>
+    <div class="card__row">
+      <mat-card-subtitle>Description</mat-card-subtitle>
+      {{ task.description }}
+    </div>
+    <div class="card__row">
+      <mat-card-subtitle>Deadline</mat-card-subtitle>
+      {{ task.deadline }}
+    </div>
+    <div class="card__row">
+      <mat-card-subtitle>Priority</mat-card-subtitle>
+      {{ task.priority }}
+    </div>
+    <div class="card__row">
+      <mat-card-subtitle>Status</mat-card-subtitle>
+      {{ task.status }}
+    </div>
+    <div class="card__row">
+      <mat-card-subtitle>Assignee</mat-card-subtitle>
+      {{ task.assignee }}
+    </div>
+  </mat-card-content>
+</mat-card>
