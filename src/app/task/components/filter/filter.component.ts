@@ -10,6 +10,8 @@ export class FilterComponent {
 
   sortReverse: boolean = false;
 
+  filterWord: string = '';
+
   @Output() sort = new EventEmitter<{ sortField: string; sortReverse: boolean }>();
 
   @Output() filterByWord = new EventEmitter<Event>();

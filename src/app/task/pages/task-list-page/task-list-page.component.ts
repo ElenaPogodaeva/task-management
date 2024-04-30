@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { TaskService } from '../../services/task.service';
 import { TaskModel } from '../../models/task.model';
@@ -17,6 +16,8 @@ export class TaskListPageComponent implements OnInit {
   sortField: string = '';
 
   sortReverse: boolean = false;
+
+  filterWord: string = '';
 
   constructor(
     private taskService: TaskService,
@@ -44,13 +45,12 @@ export class TaskListPageComponent implements OnInit {
   }
 
   onSort({ sortField, sortReverse }: { sortField: string; sortReverse: boolean }) {
-    // this.youtubeService.setSortOptions(sortField, sortReverse);
     this.sortField = sortField;
     this.sortReverse = sortReverse;
   }
 
-  filterByWord(event: Event) {
-    // const target = event.target as HTMLInputElement;
-    // this.youtubeService.setFilterTerm(target.value);
+  onFilter(event: Event) {
+    const target = event.target as HTMLInputElement;
+    this.filterWord = target.value;
   }
 }

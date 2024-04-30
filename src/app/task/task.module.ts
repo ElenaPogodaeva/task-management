@@ -16,6 +16,7 @@ import { EditTaskPageComponent } from './pages/edit-task-page/edit-task-page.com
 import { DetailedPageComponent } from './pages/detailed-page/detailed-page.component';
 import { SortPipe } from './pipes/sort.pipe';
 import { FilterComponent } from './components/filter/filter.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { FilterComponent } from './components/filter/filter.component';
     DetailedPageComponent,
     SortPipe,
     FilterComponent,
+    FilterPipe,
   ],
   imports: [
     CommonModule,
