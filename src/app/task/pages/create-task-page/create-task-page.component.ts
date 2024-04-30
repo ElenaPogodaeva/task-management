@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { TaskModel } from '../../models/task.model';
 import { TaskService } from '../../services/task.service';
@@ -8,13 +8,11 @@ import { TaskService } from '../../services/task.service';
   templateUrl: './create-task-page.component.html',
   styleUrls: ['./create-task-page.component.scss'],
 })
-export class CreateTaskPageComponent implements OnInit {
+export class CreateTaskPageComponent {
   constructor(
     private router: Router,
     private taskService: TaskService,
   ) {}
-
-  ngOnInit(): void {}
 
   onSubmit(task: TaskModel) {
     const task$ = this.taskService.createTask(task);

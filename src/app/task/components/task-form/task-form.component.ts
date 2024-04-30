@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { TaskModel } from '../../models/task.model';
+import { PriorityModel, StatusModel, TaskModel } from '../../models/task.model';
 
 @Component({
   selector: 'app-task-form',
@@ -15,6 +15,10 @@ export class TaskFormComponent implements OnInit {
   @Output() save = new EventEmitter<TaskModel>();
 
   @Output() cancel = new EventEmitter();
+
+  statuses: StatusModel[] = Object.values(StatusModel);
+
+  priorities: PriorityModel[] = Object.values(PriorityModel);
 
   constructor(private fb: FormBuilder) {}
 

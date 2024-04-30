@@ -26,25 +26,20 @@
     </mat-form-field>
     <mat-form-field>
       <mat-label>Priority</mat-label>
-      <select matNativeControl formControlName="priority" name="priority" required>
-        <option value="low">Low</option>
-        <option value="medium">Medium</option>
-        <option value="high">High</option>
-      </select>
+      <mat-select formControlName="priority" name="priority" required>
+        <mat-option [value]="priority" *ngFor="let priority of priorities">{{priority}}</mat-option>
+      </mat-select>
     </mat-form-field>
     <mat-form-field>
       <mat-label>Status</mat-label>
-      <select matNativeControl formControlName="status" name="status" required>
-        <option value="open">Open</option>
-        <option value="inProgress">In Progress</option>
-        <option value="completed">Completed</option>
-        <option value="cancelled">Cancelled</option>
-      </select>
+      <mat-select formControlName="status" name="status" required>
+        <mat-option [value]="status" *ngFor="let status of statuses">{{status}}</mat-option>
+      </mat-select>
     </mat-form-field>
     <mat-form-field>
       <input matInput formControlName="assignee" placeholder="Assignee" name="assignee">
       <mat-error *ngIf="taskForm.controls['assignee'].hasError('required')">
-        Please enter assignee
+        Please enter assignees
       </mat-error>
     </mat-form-field>
     <div class="form-actions">

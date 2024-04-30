@@ -10,7 +10,6 @@ export class TaskService {
 
   getTasks(): Observable<TaskModel[]> {
     const tasks = JSON.parse(localStorage.getItem(this.localStorageKey) || '[]');
-    console.log(tasks);
     return of(tasks).pipe(
       catchError((error) => {
         console.log('ERROR', error);
