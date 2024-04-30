@@ -3,8 +3,9 @@
     <mat-icon>add</mat-icon>
     <span>Add task</span>
   </button>
+  <app-filter (sort)="onSort($event)" (filterByWord)="filterByWord($event)"></app-filter>
 </div>
-<table [dataSource]="tasks$" mat-table class="mat-elevation-z8">
+<table [dataSource]="tasks | sort : sortField : sortReverse" mat-table class="mat-elevation-z8">
   <ng-container matColumnDef="title">
     <th mat-header-cell *matHeaderCellDef>Title</th>
     <td mat-cell *matCellDef="let task">

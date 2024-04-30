@@ -1,0 +1,24 @@
+<div class="container">
+  <span>Sorting by:</span>
+  <div class="sorting">
+    <button mat-button class="sort-btn" (click)="sortBy('deadline')">
+      date
+      <mat-icon *ngIf="(sortField === 'deadline') && sortReverse; else arrowUp">arrow_downward</mat-icon>
+    </button>
+    <button mat-button class="sort-btn" (click)="sortBy('priority')">
+      priority
+      <mat-icon *ngIf="(sortField === 'priority') && sortReverse; else arrowUp">arrow_downward</mat-icon>
+    </button>
+    <button mat-flat-button class="sort-btn" (click)="sortBy('assignee')">
+      assignee
+      <mat-icon *ngIf="(sortField === 'assignee') && sortReverse; else arrowUp">arrow_downward</mat-icon>
+    </button>
+    <!-- <span class="sort-text">by word or sentance</span>
+    <mat-form-field appearance="fill">
+      <input matInput type="text" name="filter" (input)="filterByWord.emit($event)">
+    </mat-form-field> -->
+    <ng-template #arrowUp>
+      <mat-icon>arrow_upward</mat-icon>
+    </ng-template>
+  </div>
+</div>

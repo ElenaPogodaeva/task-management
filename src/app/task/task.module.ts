@@ -14,6 +14,8 @@ import { TaskFormComponent } from './components/task-form/task-form.component';
 import { CreateTaskPageComponent } from './pages/create-task-page/create-task-page.component';
 import { EditTaskPageComponent } from './pages/edit-task-page/edit-task-page.component';
 import { DetailedPageComponent } from './pages/detailed-page/detailed-page.component';
+import { SortPipe } from './pipes/sort.pipe';
+import { FilterComponent } from './components/filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { DetailedPageComponent } from './pages/detailed-page/detailed-page.compo
     CreateTaskPageComponent,
     EditTaskPageComponent,
     DetailedPageComponent,
+    SortPipe,
+    FilterComponent,
   ],
   imports: [
     CommonModule,

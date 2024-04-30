@@ -12,7 +12,11 @@ import { TaskModel } from '../../models/task.model';
 export class TaskListPageComponent implements OnInit {
   readonly columns = ['title', 'deadline', 'priority', 'status', 'assignee', 'action'];
 
-  tasks$!: Observable<TaskModel[]>;
+  tasks!: TaskModel[];
+
+  sortField: string = '';
+
+  sortReverse: boolean = false;
 
   constructor(
     private taskService: TaskService,
@@ -24,7 +28,7 @@ export class TaskListPageComponent implements OnInit {
   }
 
   loadTasks() {
-    this.tasks$ = this.taskService.getTasks();
+    this.taskService.getTasks().subscribe((tasks) => (this.tasks = tasks));
   }
 
   onClick(id: number) {
@@ -37,5 +41,16 @@ export class TaskListPageComponent implements OnInit {
 
   onDelete(id: number) {
     this.taskService.deleteTask(id).subscribe(() => this.loadTasks());
+  }
+
+  onSort({ sortField, sortReverse }: { sortField: string; sortReverse: boolean }) {
+    // this.youtubeService.setSortOptions(sortField, sortReverse);
+    this.sortField = sortField;
+    this.sortReverse = sortReverse;
+  }
+
+  filterByWord(event: Event) {
+    // const target = event.target as HTMLInputElement;
+    // this.youtubeService.setFilterTerm(target.value);
   }
 }
